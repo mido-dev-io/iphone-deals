@@ -1,12 +1,4 @@
-<!doctype html>
-<html lang="nl">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Refurbished iPhone 17 Pro deals in topstaat, met Swappie voorop.">
-<meta name="theme-color" content="#0f6b52">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 56'%3E%3Crect x='2' y='1' width='36' height='54' rx='8' fill='%230f6b52'/%3E%3C/svg%3E">
-<title>iPhone Deal Radar</title>
+<title>iPhone Deals voor Mama</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
 <style>
@@ -40,6 +32,8 @@ img{max-width:100%}
   --main:#4fd1a8; --main-soft:#10302a; --main-fg:#0b1512;
   --good:#5fd39a; --good-soft:#123323; --warn:#f0b75a; --warn-soft:#3a2a10; --bad:#ff7d84; --bad-soft:#3d1518;
   --c17:#8aa2ff; --c18:#f0935a; color-scheme:dark}
+@font-face{font-family:"Geist Pixel";src:url(fonts/GeistPixel-Square.woff2) format("woff2");font-display:swap}
+:root[data-font="pixel"]{--font-display:"Geist Pixel", "Roboto", ui-sans-serif, system-ui, sans-serif;--font-data:"Geist Pixel", "Roboto", ui-sans-serif, system-ui, sans-serif}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{background:var(--bg);color:var(--fg);font-family:var(--font-display);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
@@ -85,8 +79,9 @@ button{font:inherit;color:inherit}
 .price .s{font-size:13.5px;color:var(--fg-2)}
 .price .s .save{color:var(--good);font-weight:600}
 .facts{display:flex;flex-direction:column;gap:10px;margin:0}
-.fact{display:grid;grid-template-columns:72px 1fr;gap:10px;align-items:start}
-.fact dt{color:var(--fg-3);font-size:14px;padding-top:1px}
+.fact{display:grid;grid-template-columns:108px 1fr;gap:10px;align-items:start}
+.fact dt{color:var(--fg-2);font-size:14px;padding-top:1px;display:flex;align-items:center;gap:7px}
+.ic{width:18px;height:18px;flex:none;color:var(--fg-3)}
 .fact dd{margin:0;min-width:0;font-size:15px}
 .fact dd .sub{display:block;font-size:13px;color:var(--fg-2)}
 .meter{display:block;height:8px;border-radius:99px;background:var(--surface-2);overflow:hidden;margin:5px 0 4px;max-width:220px}
@@ -119,14 +114,20 @@ details[open] summary::after{content:"–"}
 .explain p{margin:0}
 .explain b{color:var(--fg)}
 .empty{background:var(--surface);border:1px dashed var(--line);border-radius:var(--r);padding:22px 16px;text-align:center;color:var(--fg-2)}
-@media (prefers-reduced-motion:no-preference){.btn{transition:filter .15s}}
+.foot{display:flex;justify-content:center;padding-top:8px}
+.toggle{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);background:var(--surface);border-radius:999px;min-height:44px;padding:0 16px 0 6px;cursor:pointer;font-size:15px;font-weight:500;color:var(--fg)}
+.toggle .track{width:40px;height:24px;border-radius:99px;background:var(--surface-2);position:relative;flex:none;border:1px solid var(--line)}
+.toggle .track::after{content:"";position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:var(--fg-3)}
+.toggle[aria-checked="true"] .track{background:var(--main);border-color:var(--main)}
+.toggle[aria-checked="true"] .track::after{left:18px;background:var(--main-fg)}
+@media (prefers-reduced-motion:no-preference){.btn{transition:filter .15s}.toggle .track::after{transition:left .15s}}
 </style>
 
 </head>
 <body>
 <div class="wrap">
   <header class="top">
-    <h1>iPhone Deal Radar</h1>
+    <h1>iPhone Deals voor Mama</h1>
     <div class="status" id="status" aria-live="polite"><span class="muted">Gegevens laden…</span></div>
   </header>
 
@@ -160,6 +161,9 @@ details[open] summary::after{content:"–"}
     </details>
   </section>
 
+  <footer class="foot">
+    <button id="font-toggle" class="toggle" role="switch" aria-checked="false"><span class="track" aria-hidden="true"></span><span>Geist Pixel</span></button>
+  </footer>
 </div>
 
 <script>
@@ -195,6 +199,8 @@ details[open] summary::after{content:"–"}
   function savings(l){ const np=S.meta?.newPrices?.[l.modelKey]; if(!np||l.storageGB!==np.storageGB) return null; const s=np.price-tot(l); return s>0?s:null; }
   function phone(hex){ const c=hex||"#9aa1ab"; return '<svg class="phone" viewBox="0 0 40 56" aria-hidden="true"><rect x="2" y="1" width="36" height="54" rx="8" fill="'+esc(c)+'"/><rect x="2.5" y="1.5" width="35" height="53" rx="7.5" fill="none" stroke="rgb(0 0 0 / .18)"/><rect x="6" y="5" width="28" height="16" rx="5" fill="rgb(255 255 255 / .16)"/><circle cx="12" cy="10" r="2.8" fill="rgb(0 0 0 / .55)"/><circle cx="12" cy="17" r="2.8" fill="rgb(0 0 0 / .55)"/><circle cx="19" cy="13.5" r="2.8" fill="rgb(0 0 0 / .55)"/></svg>'; }
 
+  const IC={cond:'<svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" /> <path d="M20 2v4" /> <path d="M22 4h-4" /> <circle cx="4" cy="20" r="2" /> </svg>',full:'<svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M10 10v4" /> <path d="M14 10v4" /> <path d="M22 14v-4" /> <path d="M6 10v4" /> <rect x="2" y="6" width="16" height="12" rx="2" /> </svg>',med:'<svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M10 14v-4" /> <path d="M22 14v-4" /> <path d="M6 14v-4" /> <rect x="2" y="6" width="16" height="12" rx="2" /> </svg>',low:'<svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M22 14v-4" /> <path d="M6 14v-4" /> <rect x="2" y="6" width="16" height="12" rx="2" /> </svg>',none:'<svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M 22 14 L 22 10" /> <rect x="2" y="6" width="16" height="12" rx="2" /> </svg>',war:'<svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /> <path d="m9 12 2 2 4-4" /> </svg>'};
+  function batIcon(lvl){ return lvl==null?IC.none:lvl>=95?IC.full:lvl>=85?IC.med:IC.low; }
   function card(l, opts){
     const b=bat(l.battery), main=l.retailer===MAIN;
     const chips=[opts.cheapest?'<span class="chip good">Goedkoopst</span>':'', isDrop(l)?'<span class="chip good">Prijs gezakt</span>':'', isNew(l)?'<span class="chip accent">Nieuw</span>':''].join("");
@@ -203,9 +209,9 @@ details[open] summary::after{content:"–"}
       (chips?'<div class="chips">'+chips+'</div>':'')+
       '<div class="price"><span class="p">'+eur(tot(l))+'</span></div>'+
       '<dl class="facts">'+
-        '<div class="fact"><dt>Staat</dt><dd><b>'+esc(l.condition)+'</b></dd></div>'+
-        '<div class="fact"><dt>Batterij</dt><dd><b>'+esc(b.txt)+'</b>'+(b.life?' <span class="muted">· '+esc(b.life)+'</span>':'')+meter(b.lvl)+'</dd></div>'+
-        '<div class="fact"><dt>Garantie</dt><dd><b>'+months(l.warrantyMonths||12)+'</b></dd></div>'+
+        '<div class="fact"><dt>'+IC.cond+'Conditie</dt><dd><b>'+esc(l.condition)+'</b></dd></div>'+
+        '<div class="fact"><dt>'+batIcon(b.lvl)+'Batterij</dt><dd><b>'+esc(b.txt)+'</b>'+(b.life?' <span class="muted">· '+esc(b.life)+'</span>':'')+meter(b.lvl)+'</dd></div>'+
+        '<div class="fact"><dt>'+IC.war+'Garantie</dt><dd><b>'+months(l.warrantyMonths||12)+'</b></dd></div>'+
       '</dl>'+
       '<a class="btn" href="'+esc(l.url)+'" target="_blank" rel="noopener">Bekijk bij '+esc(l.retailer)+'</a>'+
     '</article>';
@@ -299,6 +305,11 @@ details[open] summary::after{content:"–"}
   function renderAll(){ renderStatus(); renderModel(); renderChart(); renderSide(); }
 
   document.querySelectorAll("[data-sort]").forEach(b=>b.addEventListener("click",()=>{S.sort=b.dataset.sort; renderModel();}));
+
+  const ft=$("#font-toggle");
+  function setFont(on){ if(on) document.documentElement.dataset.font="pixel"; else delete document.documentElement.dataset.font; ft.setAttribute("aria-checked",String(on)); try{localStorage.setItem("radar-font",on?"pixel":"roboto")}catch(e){} }
+  try{ if(localStorage.getItem("radar-font")==="pixel") setFont(true); }catch(e){}
+  ft.addEventListener("click",()=>setFont(ft.getAttribute("aria-checked")!=="true"));
 
   renderAll();
 
