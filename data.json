@@ -1,0 +1,671 @@
+{
+ "version": 1,
+ "meta": {
+  "criteria": {
+   "ceiling": 1100,
+   "models": [
+    "17pro",
+    "18pro"
+   ],
+   "storageGB": 256,
+   "targetPrice": 1000
+  },
+  "intervalHours": 6,
+  "lastMessage": "",
+  "lastScanAt": "2026-10-10T17:45:00Z",
+  "lastStatus": "ok",
+  "lastSuccessAt": "2026-10-10T17:15:00Z",
+  "mainRetailer": "Swappie",
+  "newPrices": {
+   "17pro": {
+    "label": "Apple launch price iPhone 17 Pro 256GB",
+    "price": 1329,
+    "source": "Back Market / Refurbished.nu reference",
+    "storageGB": 256
+   },
+   "18pro": {
+    "label": "Apple NL price iPhone 18 Pro 256GB",
+    "price": 1479,
+    "source": "https://www.apple.com/nl/shop/buy-iphone/iphone-18-pro",
+    "storageGB": 256
+   }
+  },
+  "nextScanAt": "2026-10-10T18:23:00Z",
+  "notifiedBest": {
+   "17pro": {
+    "at": "2026-10-10T17:15:00Z",
+    "effective": 942.98,
+    "id": "17pro-rebuy-uitstekend-oranje",
+    "total": 1058.98
+   },
+   "18pro": null
+  },
+  "references": [
+   {
+    "label": "Back Market Premium",
+    "modelKey": "17pro",
+    "price": "€944–€1.010"
+   },
+   {
+    "label": "Swappie Premium",
+    "modelKey": "17pro",
+    "price": "€1.109"
+   },
+   {
+    "label": "Refurbished.nu",
+    "modelKey": "18pro",
+    "price": "€1.349"
+   }
+  ],
+  "retailersChecked": [
+   {
+    "name": "Swappie",
+    "note": "17 Pro: Premium € 1.059 (batterij min. 95%), Uitstekend € 1.019. 18 Pro niet op voorraad.",
+    "ok": true,
+    "url": "https://swappie.com/nl/model/iphone-17-pro/"
+   },
+   {
+    "name": "Back Market",
+    "note": "17 Pro: Premium € 1.043, Uitstekend € 985 (alleen eSIM).",
+    "ok": true,
+    "url": "https://www.backmarket.nl/nl-nl/p/iphone-17-pro"
+   },
+   {
+    "name": "Fixje",
+    "note": "Zo goed als nieuw € 1.049; met nieuwe batterij € 1.089.",
+    "ok": true,
+    "url": "https://www.fixje.nl/iphone-17-pro-256gb-diepblauw"
+   },
+   {
+    "name": "rebuy",
+    "note": "Oranje Uitstekend € 1.054,99 + € 3,99 verzending.",
+    "ok": true,
+    "url": "https://www.rebuy.nl/kopen/telefoons/apple/iphone-17-generatie/iphone-17-pro"
+   },
+   {
+    "name": "leapp",
+    "note": "Als nieuw + nieuwe batterij € 1.109 (nog 1).",
+    "ok": true,
+    "url": "https://leapp.nl/products/iphone-17-pro-256gb"
+   },
+   {
+    "name": "Forza Refurbished",
+    "note": "17 Pro uitverkocht.",
+    "ok": true,
+    "url": "https://www.forza-refurbished.nl/iphone-17-pro-256-gb-blauw"
+   },
+   {
+    "name": "Refurbished.nl",
+    "note": "Goedkoopste topstaat € 1.131,90, boven max.",
+    "ok": true,
+    "url": "https://www.refurbished.nl/iphone-17-pro"
+   },
+   {
+    "name": "Refurbished.nu",
+    "note": "18 Pro € 1.360. 17 Pro uitverkocht.",
+    "ok": true,
+    "url": "https://refurbished.nu/en/collections/iphones"
+   }
+  ],
+  "scanTask": {
+   "name": "iPhone Deal Radar scan",
+   "schedule": "elke 6 uur (00:23, 06:23, 12:23, 18:23 UTC)"
+  },
+  "scoring": "effective = total - 4*(warrantyMonths-12) - batteryCredit(nieuw 60, >=95% 40, >=90% 25, >=85% 10) - 20 bij topstaat"
+ },
+ "listings": [
+  {
+   "available": true,
+   "battery": {
+    "label": "Niet vermeld",
+    "type": "unknown",
+    "verified": false
+   },
+   "color": "Diepblauw",
+   "colorHex": "#2e4466",
+   "condition": "Premium",
+   "conditionTier": "top",
+   "firstSeen": "2026-10-10T17:15:00Z",
+   "imageUrl": null,
+   "lastChanged": "2026-10-10T17:15:00Z",
+   "lastVerified": "2026-10-10T17:15:00Z",
+   "model": "iPhone 17 Pro",
+   "modelKey": "17pro",
+   "note": "Alleen eSIM; met fysieke simkaart € 100 duurder.",
+   "prevTotal": null,
+   "price": 1043,
+   "priceHistory": [
+    {
+     "t": "2026-10-10T17:15:00Z",
+     "total": 1043
+    }
+   ],
+   "retailer": "Back Market",
+   "selectHint": "Premium · Standaardbatterij · eSIM · Diepblauw",
+   "seller": "We Cell",
+   "shipping": 0,
+   "shippingVerified": true,
+   "sim": "alleen eSIM",
+   "status": "active",
+   "statusReason": "",
+   "storageGB": 256,
+   "total": 1043,
+   "url": "https://www.backmarket.nl/nl-nl/p/gb/8b1aaedb-9ab9-4854-a640-1532643ac642",
+   "warrantyMonths": 12,
+   "id": "17pro-backmarket-premium-diepblauw"
+  },
+  {
+   "available": true,
+   "battery": {
+    "label": "Niet vermeld",
+    "type": "unknown",
+    "verified": false
+   },
+   "color": "Diepblauw",
+   "colorHex": "#2e4466",
+   "condition": "Uitstekend",
+   "conditionTier": "excellent",
+   "firstSeen": "2026-10-10T17:15:00Z",
+   "imageUrl": null,
+   "lastChanged": "2026-10-10T17:15:00Z",
+   "lastVerified": "2026-10-10T17:15:00Z",
+   "model": "iPhone 17 Pro",
+   "modelKey": "17pro",
+   "note": "Alleen eSIM; met fysieke simkaart € 100 duurder.",
+   "prevTotal": null,
+   "price": 985,
+   "priceHistory": [
+    {
+     "t": "2026-10-10T17:15:00Z",
+     "total": 985
+    }
+   ],
+   "retailer": "Back Market",
+   "selectHint": "Uitstekend · Standaardbatterij · eSIM · Diepblauw",
+   "seller": "We Cell",
+   "shipping": 0,
+   "shippingVerified": true,
+   "sim": "alleen eSIM",
+   "status": "active",
+   "statusReason": "",
+   "storageGB": 256,
+   "total": 985,
+   "url": "https://www.backmarket.nl/nl-nl/p/gb/8b1aaedb-9ab9-4854-a640-1532643ac642",
+   "warrantyMonths": 12,
+   "id": "17pro-backmarket-uitstekend-diepblauw"
+  },
+  {
+   "available": true,
+   "battery": {
+    "label": "Niet vermeld",
+    "type": "unknown",
+    "verified": false
+   },
+   "color": "Diepblauw",
+   "colorHex": "#2e4466",
+   "condition": "Zo goed als nieuw",
+   "conditionTier": "top",
+   "firstSeen": "2026-10-10T17:15:00Z",
+   "imageUrl": null,
+   "lastChanged": "2026-10-10T17:15:00Z",
+   "lastVerified": "2026-10-10T17:15:00Z",
+   "model": "iPhone 17 Pro",
+   "modelKey": "17pro",
+   "note": "",
+   "prevTotal": null,
+   "price": 1049,
+   "priceHistory": [
+    {
+     "t": "2026-10-10T17:15:00Z",
+     "total": 1049
+    }
+   ],
+   "retailer": "Fixje",
+   "selectHint": "A Grade · batterij Standaard",
+   "seller": null,
+   "shipping": 0,
+   "shippingVerified": false,
+   "sim": null,
+   "status": "active",
+   "statusReason": "",
+   "storageGB": 256,
+   "total": 1049,
+   "url": "https://www.fixje.nl/iphone-17-pro-256gb-diepblauw",
+   "warrantyMonths": 24,
+   "id": "17pro-fixje-agrade-diepblauw"
+  },
+  {
+   "available": true,
+   "battery": {
+    "label": "Nieuw (100%)",
+    "type": "new",
+    "verified": true
+   },
+   "color": "Diepblauw",
+   "colorHex": "#2e4466",
+   "condition": "Zo goed als nieuw",
+   "conditionTier": "top",
+   "firstSeen": "2026-10-10T17:15:00Z",
+   "imageUrl": null,
+   "lastChanged": "2026-10-10T17:15:00Z",
+   "lastVerified": "2026-10-10T17:15:00Z",
+   "model": "iPhone 17 Pro",
+   "modelKey": "17pro",
+   "note": "",
+   "prevTotal": null,
+   "price": 1089,
+   "priceHistory": [
+    {
+     "t": "2026-10-10T17:15:00Z",
+     "total": 1089
+    }
+   ],
+   "retailer": "Fixje",
+   "selectHint": "A Grade · batterij Nieuw",
+   "seller": null,
+   "shipping": 0,
+   "shippingVerified": false,
+   "sim": null,
+   "status": "active",
+   "statusReason": "",
+   "storageGB": 256,
+   "total": 1089,
+   "url": "https://www.fixje.nl/iphone-17-pro-256gb-diepblauw",
+   "warrantyMonths": 24,
+   "id": "17pro-fixje-agrade-newbattery-diepblauw"
+  },
+  {
+   "available": false,
+   "battery": {
+    "label": "Niet vermeld",
+    "type": "unknown",
+    "verified": false
+   },
+   "color": "Blauw",
+   "colorHex": "#2e4466",
+   "condition": "Zo goed als nieuw",
+   "conditionTier": "top",
+   "firstSeen": "2026-10-10T17:15:00Z",
+   "imageUrl": null,
+   "lastChanged": "2026-10-10T17:15:00Z",
+   "lastVerified": "2026-10-10T17:15:00Z",
+   "model": "iPhone 17 Pro",
+   "modelKey": "17pro",
+   "note": "",
+   "prevTotal": null,
+   "price": 1119,
+   "priceHistory": [
+    {
+     "t": "2026-10-10T17:15:00Z",
+     "total": 1119
+    }
+   ],
+   "retailer": "Forza Refurbished",
+   "seller": null,
+   "shipping": 0,
+   "shippingVerified": false,
+   "sim": null,
+   "status": "unavailable",
+   "statusReason": "Uitverkocht",
+   "storageGB": 256,
+   "total": 1119,
+   "url": "https://www.forza-refurbished.nl/iphone-17-pro-256-gb-blauw",
+   "warrantyMonths": 36,
+   "id": "17pro-forza-zgan-blauw"
+  },
+  {
+   "available": true,
+   "battery": {
+    "label": "Nieuw (100%)",
+    "type": "new",
+    "verified": true
+   },
+   "color": "Oranje, Blauw of Zilver",
+   "colorHex": "#d4672a",
+   "condition": "Als nieuw",
+   "conditionTier": "top",
+   "firstSeen": "2026-10-10T17:15:00Z",
+   "imageUrl": null,
+   "lastChanged": "2026-10-10T17:15:00Z",
+   "lastVerified": "2026-10-10T17:15:00Z",
+   "model": "iPhone 17 Pro",
+   "modelKey": "17pro",
+   "note": "Nog 1 op voorraad.",
+   "prevTotal": null,
+   "price": 1109,
+   "priceHistory": [
+    {
+     "t": "2026-10-10T17:15:00Z",
+     "total": 1109
+    }
+   ],
+   "retailer": "leapp",
+   "seller": null,
+   "shipping": 0,
+   "shippingVerified": false,
+   "sim": null,
+   "status": "watch",
+   "statusReason": "€ 9 boven max",
+   "storageGB": 256,
+   "total": 1109,
+   "url": "https://leapp.nl/products/iphone-17-pro-256gb",
+   "warrantyMonths": 24,
+   "id": "17pro-leapp-alsnieuw-newbattery"
+  },
+  {
+   "available": true,
+   "battery": {
+    "label": "80–99%",
+    "max": 99,
+    "min": 80,
+    "type": "range",
+    "verified": false
+   },
+   "color": "Kosmisch oranje",
+   "colorHex": "#d4672a",
+   "condition": "Uitstekend (beste staat)",
+   "conditionTier": "top",
+   "firstSeen": "2026-10-10T17:15:00Z",
+   "imageUrl": null,
+   "lastChanged": "2026-10-10T17:15:00Z",
+   "lastVerified": "2026-10-10T17:15:00Z",
+   "model": "iPhone 17 Pro",
+   "modelKey": "17pro",
+   "note": "100% batterij kost € 70 extra.",
+   "prevTotal": null,
+   "price": 1054.99,
+   "priceHistory": [
+    {
+     "t": "2026-10-10T17:15:00Z",
+     "total": 1058.98
+    }
+   ],
+   "retailer": "rebuy",
+   "selectHint": "Uitstekend · batterij 80–99%",
+   "seller": null,
+   "shipping": 3.99,
+   "shippingVerified": true,
+   "sim": null,
+   "status": "active",
+   "statusReason": "",
+   "storageGB": 256,
+   "total": 1058.98,
+   "url": "https://www.rebuy.nl/i,15695791/telefoons/apple-iphone-17-pro-256gb-kosmisch-oranje",
+   "warrantyMonths": 36,
+   "id": "17pro-rebuy-uitstekend-oranje"
+  },
+  {
+   "available": true,
+   "battery": {
+    "label": "Nieuw (100%)",
+    "type": "new",
+    "verified": true
+   },
+   "color": "Diepblauw",
+   "colorHex": "#2e4466",
+   "condition": "Premium",
+   "conditionTier": "top",
+   "firstSeen": "2026-10-10T17:15:00Z",
+   "imageUrl": null,
+   "lastChanged": "2026-10-10T17:15:00Z",
+   "lastVerified": "2026-10-10T17:15:00Z",
+   "model": "iPhone 17 Pro",
+   "modelKey": "17pro",
+   "note": "",
+   "prevTotal": null,
+   "price": 1152,
+   "priceHistory": [
+    {
+     "t": "2026-10-10T17:15:00Z",
+     "total": 1152
+    }
+   ],
+   "retailer": "Refurbished.nl",
+   "seller": null,
+   "shipping": 0,
+   "shippingVerified": true,
+   "sim": null,
+   "status": "watch",
+   "statusReason": "Boven € 1.100",
+   "storageGB": 256,
+   "total": 1152,
+   "url": "https://www.refurbished.nl/iphone-17-pro/256gb-diepblauw",
+   "warrantyMonths": 36,
+   "id": "17pro-refurbishednl-premium-newbattery"
+  },
+  {
+   "available": false,
+   "battery": {
+    "label": "Minimaal 85%",
+    "min": 85,
+    "type": "min",
+    "verified": false
+   },
+   "color": null,
+   "colorHex": "#9aa1ab",
+   "condition": "Zo goed als nieuw",
+   "conditionTier": "top",
+   "firstSeen": "2026-10-10T17:15:00Z",
+   "imageUrl": null,
+   "lastChanged": "2026-10-10T17:15:00Z",
+   "lastVerified": "2026-10-10T17:15:00Z",
+   "model": "iPhone 17 Pro",
+   "modelKey": "17pro",
+   "note": "",
+   "prevTotal": null,
+   "price": 1144,
+   "priceHistory": [
+    {
+     "t": "2026-10-10T17:15:00Z",
+     "total": 1144
+    }
+   ],
+   "retailer": "Refurbished.nu",
+   "seller": null,
+   "shipping": 0,
+   "shippingVerified": true,
+   "sim": null,
+   "status": "unavailable",
+   "statusReason": "Uitverkocht",
+   "storageGB": 256,
+   "total": 1144,
+   "url": "https://refurbished.nu/en/products/iphone-17-pro",
+   "warrantyMonths": 24,
+   "id": "17pro-refurbishednu-asgoodasnew"
+  },
+  {
+   "available": true,
+   "battery": {
+    "label": "Nieuw (100%)",
+    "type": "new",
+    "verified": true
+   },
+   "color": "Diepblauw",
+   "colorHex": "#2e4466",
+   "condition": "Premium",
+   "conditionTier": "top",
+   "firstSeen": "2026-10-10T17:45:00Z",
+   "imageUrl": null,
+   "lastChanged": "2026-10-10T17:45:00Z",
+   "lastVerified": "2026-10-10T17:45:00Z",
+   "model": "iPhone 17 Pro",
+   "modelKey": "17pro",
+   "note": "",
+   "prevTotal": null,
+   "price": 1109,
+   "priceHistory": [
+    {
+     "t": "2026-10-10T17:45:00Z",
+     "total": 1109
+    }
+   ],
+   "retailer": "Swappie",
+   "selectHint": "Premium · batterij Nieuw · Diepblauw",
+   "seller": null,
+   "shipping": 0,
+   "shippingVerified": false,
+   "sim": "Dual SIM",
+   "status": "watch",
+   "statusReason": "€ 9 boven max",
+   "storageGB": 256,
+   "total": 1109,
+   "url": "https://swappie.com/nl/iphone/iphone-17-pro/iphone-17-pro-256gb-diepblauw-39/",
+   "warrantyMonths": 24,
+   "id": "17pro-swappie-premium-newbattery"
+  },
+  {
+   "available": true,
+   "battery": {
+    "label": "Minimaal 95% (Prime)",
+    "min": 95,
+    "type": "min",
+    "verified": false
+   },
+   "color": "Diepblauw, Kosmisch oranje of Zilver",
+   "colorHex": "#2e4466",
+   "condition": "Premium",
+   "conditionTier": "top",
+   "firstSeen": "2026-10-10T17:45:00Z",
+   "imageUrl": "https://assets.swappie.com/cdn-cgi/image/width=600,height=600,fit=contain,format=auto/swappie-iphone-17-pro-deep-blue.png",
+   "lastChanged": "2026-10-10T17:45:00Z",
+   "lastVerified": "2026-10-10T17:45:00Z",
+   "model": "iPhone 17 Pro",
+   "modelKey": "17pro",
+   "note": "",
+   "prevTotal": null,
+   "price": 1059,
+   "priceHistory": [
+    {
+     "t": "2026-10-10T17:45:00Z",
+     "total": 1059
+    }
+   ],
+   "retailer": "Swappie",
+   "selectHint": "Premium · batterij Prime · kleur naar keuze",
+   "seller": null,
+   "shipping": 0,
+   "shippingVerified": false,
+   "sim": "Dual SIM",
+   "status": "active",
+   "statusReason": "",
+   "storageGB": 256,
+   "total": 1059,
+   "url": "https://swappie.com/nl/iphone/iphone-17-pro/iphone-17-pro-256gb-diepblauw-40/",
+   "warrantyMonths": 24,
+   "id": "17pro-swappie-premium-prime"
+  },
+  {
+   "available": true,
+   "battery": {
+    "label": "Minimaal 86%",
+    "min": 86,
+    "type": "min",
+    "verified": false
+   },
+   "color": "Diepblauw",
+   "colorHex": "#2e4466",
+   "condition": "Uitstekend",
+   "conditionTier": "excellent",
+   "firstSeen": "2026-10-10T17:15:00Z",
+   "imageUrl": "https://assets.swappie.com/cdn-cgi/image/width=600,height=600,fit=contain,format=auto/swappie-iphone-17-pro-deep-blue.png",
+   "lastChanged": "2026-10-10T17:15:00Z",
+   "lastVerified": "2026-10-10T17:45:00Z",
+   "model": "iPhone 17 Pro",
+   "modelKey": "17pro",
+   "note": "",
+   "prevTotal": null,
+   "price": 1019,
+   "priceHistory": [
+    {
+     "t": "2026-10-10T17:15:00Z",
+     "total": 1019
+    }
+   ],
+   "retailer": "Swappie",
+   "selectHint": "Uitstekend · batterij Standard · Diepblauw",
+   "seller": null,
+   "shipping": 0,
+   "shippingVerified": false,
+   "sim": "Dual SIM",
+   "status": "active",
+   "statusReason": "",
+   "storageGB": 256,
+   "total": 1019,
+   "url": "https://swappie.com/nl/iphone/iphone-17-pro/iphone-17-pro-256gb-diepblauw-38/",
+   "warrantyMonths": 24,
+   "id": "17pro-swappie-uitstekend-diepblauw"
+  },
+  {
+   "available": true,
+   "battery": {
+    "label": "Minimaal 85%",
+    "min": 85,
+    "type": "min",
+    "verified": false
+   },
+   "color": "Zwart, Zilver, Glacier of Bordeaux",
+   "colorHex": "#2b2b2e",
+   "condition": "Zo goed als nieuw",
+   "conditionTier": "top",
+   "firstSeen": "2026-10-10T17:15:00Z",
+   "imageUrl": null,
+   "lastChanged": "2026-10-10T17:15:00Z",
+   "lastVerified": "2026-10-10T17:15:00Z",
+   "model": "iPhone 18 Pro",
+   "modelKey": "18pro",
+   "note": "Enige refurbished 18 Pro die we vonden.",
+   "prevTotal": null,
+   "price": 1360,
+   "priceHistory": [
+    {
+     "t": "2026-10-10T17:15:00Z",
+     "total": 1360
+    }
+   ],
+   "retailer": "Refurbished.nu",
+   "seller": null,
+   "shipping": 0,
+   "shippingVerified": true,
+   "sim": null,
+   "status": "watch",
+   "statusReason": "Boven € 1.100",
+   "storageGB": 256,
+   "total": 1360,
+   "url": "https://refurbished.nu/en/products/iphone-18-pro",
+   "warrantyMonths": 24,
+   "id": "18pro-refurbishednu-asgoodasnew"
+  }
+ ],
+ "scans": [
+  {
+   "best": {
+    "17pro": {
+     "effective": 942.98,
+     "id": "17pro-rebuy-uitstekend-oranje",
+     "retailer": "rebuy",
+     "total": 1058.98
+    },
+    "18pro": null
+   },
+   "cheapest": {
+    "17pro": 985,
+    "18pro": null
+   },
+   "cheapestSeen": {
+    "17pro": 985,
+    "18pro": 1360
+   },
+   "counts": {
+    "active": 7,
+    "unavailable": 2,
+    "watch": 4
+   },
+   "notified": false,
+   "ok": true,
+   "status": "ok",
+   "summary": "Eerste check: 7 iPhone 17 Pro deals (2 bij Swappie); geen iPhone 18 Pro onder € 1.100 (laagste € 1.360).",
+   "t": "2026-10-10T17:15:00Z",
+   "id": "2026-10-10T1715Z"
+  }
+ ]
+}

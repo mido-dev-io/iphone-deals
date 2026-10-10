@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Refurbished iPhone 17 Pro en 18 Pro deals in topstaat, met Swappie voorop. Elke 6 uur gecheckt.">
+<meta name="theme-color" content="#0f6b52">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 56'%3E%3Crect x='2' y='1' width='36' height='54' rx='8' fill='%230f6b52'/%3E%3C/svg%3E">
+<title>iPhone Deal Radar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+/* Layout: mobile-first single column → status → model tabs → Swappie first → andere winkels → prijsverloop → net niet / uitleg */
+:root{
+  --bg:#f3f4f6; --surface:#ffffff; --surface-2:#eceef2; --line:#dcdfe5;
+  --fg:#16191f; --fg-2:#4a5260; --fg-3:#737b88;
+  --accent:#2747c9; --accent-soft:#e3e8fb; --accent-fg:#ffffff;
+  --main:#0f6b52; --main-soft:#e0f2ec; --main-fg:#ffffff;
+  --good:#16794a; --good-soft:#dcf2e6; --warn:#955800; --warn-soft:#fbedd3; --bad:#b4232c; --bad-soft:#fbe0e1;
+  --c17:#2747c9; --c18:#b0541f;
+  --font-display:"Schibsted Grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-data:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --r:16px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e1013; --surface:#171a1f; --surface-2:#22262d; --line:#2d323b;
+  --fg:#eef0f3; --fg-2:#b6bcc6; --fg-3:#8a929e;
+  --accent:#8aa2ff; --accent-soft:#1f2747; --accent-fg:#0e1013;
+  --main:#4fd1a8; --main-soft:#10302a; --main-fg:#0b1512;
+  --good:#5fd39a; --good-soft:#123323; --warn:#f0b75a; --warn-soft:#3a2a10; --bad:#ff7d84; --bad-soft:#3d1518;
+  --c17:#8aa2ff; --c18:#f0935a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1013; --surface:#171a1f; --surface-2:#22262d; --line:#2d323b;
+  --fg:#eef0f3; --fg-2:#b6bcc6; --fg-3:#8a929e;
+  --accent:#8aa2ff; --accent-soft:#1f2747; --accent-fg:#0e1013;
+  --main:#4fd1a8; --main-soft:#10302a; --main-fg:#0b1512;
+  --good:#5fd39a; --good-soft:#123323; --warn:#f0b75a; --warn-soft:#3a2a10; --bad:#ff7d84; --bad-soft:#3d1518;
+  --c17:#8aa2ff; --c18:#f0935a; color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-display);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1100px;margin:0 auto;padding-inline:16px;padding-block:16px 48px;display:flex;flex-direction:column;gap:22px}
+h1,h2,h3{margin:0;text-wrap:balance;letter-spacing:-.01em}
+h1{font-size:clamp(24px,6vw,32px);font-weight:800;line-height:1.15}
+h2{font-size:20px;font-weight:700}
+.num{font-family:var(--font-data);font-variant-numeric:tabular-nums}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:8px}
+button{font:inherit;color:inherit}
+.muted{color:var(--fg-2)} .small{font-size:13.5px} .tiny{font-size:12.5px;color:var(--fg-3)}
+
+/* kop */
+.top{display:flex;flex-direction:column;gap:6px}
+.top p{margin:0;color:var(--fg-2)}
+.status{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:14px;color:var(--fg-2)}
+.status b{color:var(--fg);font-weight:600}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--fg-3);margin-right:6px}
+.dot.ok{background:var(--good)} .dot.warn{background:var(--warn)} .dot.bad{background:var(--bad)}
+.banner{border-radius:12px;padding:12px 14px;font-size:14.5px}
+.banner.warn{background:var(--warn-soft);color:var(--warn)} .banner.bad{background:var(--bad-soft);color:var(--bad)} .banner.info{background:var(--surface-2);color:var(--fg-2)}
+
+/* tabs */
+.tabs{display:grid;grid-template-columns:1fr 1fr;background:var(--surface-2);border-radius:14px;padding:4px;gap:4px;position:sticky;top:env(safe-area-inset-top,0px);z-index:5;box-shadow:0 0 0 8px var(--bg)}
+.tabs button{border:0;background:transparent;min-height:46px;border-radius:11px;font-weight:700;font-size:16px;color:var(--fg-2);cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--surface);color:var(--fg);box-shadow:0 1px 3px rgb(0 0 0 / .14)}
+.summary{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:15px;color:var(--fg-2)}
+.summary b{color:var(--fg);font-family:var(--font-data);font-weight:500}
+
+/* secties */
+.sec{display:flex;flex-direction:column;gap:12px}
+.sec-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px}
+.grid{display:grid;grid-template-columns:1fr;gap:14px}
+@media (min-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:980px){.grid.three{grid-template-columns:repeat(3,1fr)}}
+
+/* kaart */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.card.main{border:2px solid var(--main)}
+.card-top{display:flex;align-items:center;gap:12px}
+.phone{width:40px;height:56px;flex:none}
+.card-top .who{font-weight:700;font-size:17px;line-height:1.2}
+.card-top .what{font-size:14px;color:var(--fg-2)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:12.5px;font-weight:600;padding:3px 9px;border-radius:999px;background:var(--surface-2);color:var(--fg-2);white-space:nowrap}
+.chip.good{background:var(--good-soft);color:var(--good)} .chip.main{background:var(--main-soft);color:var(--main)} .chip.accent{background:var(--accent-soft);color:var(--accent)} .chip.warn{background:var(--warn-soft);color:var(--warn)}
+.price{display:flex;flex-direction:column;gap:2px}
+.price .p{font-size:36px;font-weight:800;letter-spacing:-.02em;line-height:1}
+.price .s{font-size:13.5px;color:var(--fg-2)}
+.price .s .save{color:var(--good);font-weight:600}
+.facts{display:flex;flex-direction:column;gap:10px;margin:0}
+.fact{display:grid;grid-template-columns:78px 1fr;gap:10px;align-items:start}
+.fact dt{color:var(--fg-3);font-size:14px;padding-top:1px}
+.fact dd{margin:0;min-width:0;font-size:15px}
+.fact dd .sub{display:block;font-size:13px;color:var(--fg-2)}
+.meter{display:block;height:8px;border-radius:99px;background:var(--surface-2);overflow:hidden;margin:5px 0 4px;max-width:220px}
+.meter i{display:block;height:100%;border-radius:99px}
+.btn{display:flex;justify-content:center;align-items:center;min-height:50px;background:var(--accent);color:var(--accent-fg);text-decoration:none;font-weight:700;border-radius:12px;font-size:16px;padding:0 16px}
+.card.main .btn{background:var(--main);color:var(--main-fg)}
+.btn:hover{filter:brightness(1.07)}
+.pick{font-size:13px;color:var(--fg-2);margin-top:-4px}
+
+/* sorteren */
+.sorter{display:flex;gap:8px;overflow-x:auto;padding-bottom:2px;-webkit-overflow-scrolling:touch}
+.sorter button{flex:none;border:1px solid var(--line);background:var(--surface);border-radius:999px;min-height:40px;padding:0 14px;font-size:14.5px;font-weight:600;color:var(--fg-2);cursor:pointer}
+.sorter button[aria-pressed="true"]{background:var(--fg);border-color:var(--fg);color:var(--bg)}
+
+/* paneel */
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13.5px;color:var(--fg-2)}
+.sw{width:10px;height:10px;border-radius:3px;display:inline-block;margin-right:6px}
+.chart{width:100%;height:auto;display:block}
+.chart text{fill:var(--fg-3);font-family:var(--font-data);font-size:12px}
+details summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:40px}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:"+";font-size:24px;line-height:1;color:var(--fg-3);font-weight:400}
+details[open] summary::after{content:"–"}
+.list{display:flex;flex-direction:column}
+.it{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:12px 0;border-top:1px solid var(--line);font-size:15px}
+.it:first-child{border-top:0}
+.it .sub{grid-column:1/-1;font-size:13.5px;color:var(--fg-2)}
+.explain{display:flex;flex-direction:column;gap:10px;font-size:15px;color:var(--fg-2);max-width:65ch}
+.explain p{margin:0}
+.explain b{color:var(--fg)}
+.empty{background:var(--surface);border:1px dashed var(--line);border-radius:var(--r);padding:22px 16px;text-align:center;color:var(--fg-2)}
+@media (prefers-reduced-motion:no-preference){.btn{transition:filter .15s}}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>iPhone Deal Radar</h1>
+    <p>Refurbished iPhone 17 Pro en 18 Pro, 256 GB, in topstaat. Elke 6 uur gecheckt.</p>
+    <div class="status" id="status" aria-live="polite"><span class="muted">Gegevens laden…</span></div>
+  </header>
+
+  <div id="banners" style="display:flex;flex-direction:column;gap:8px"></div>
+
+  <nav class="tabs" role="group" aria-label="Kies model">
+    <button id="m-17pro" data-model="17pro" aria-pressed="true">iPhone 17 Pro</button>
+    <button id="m-18pro" data-model="18pro" aria-pressed="false">iPhone 18 Pro</button>
+  </nav>
+
+  <div class="summary" id="summary"></div>
+
+  <section class="sec" aria-labelledby="sw-h">
+    <div class="sec-head"><h2 id="sw-h">Bij Swappie</h2><span class="tiny">Onze vaste winkel</span></div>
+    <div id="swappie"><div class="empty">Laden…</div></div>
+  </section>
+
+  <section class="sec" aria-labelledby="other-h">
+    <div class="sec-head"><h2 id="other-h">Andere winkels</h2><span class="tiny" id="other-n"></span></div>
+    <div class="sorter" role="group" aria-label="Sorteren">
+      <button id="s-price" data-sort="price" aria-pressed="true">Laagste prijs</button>
+      <button id="s-battery" data-sort="battery" aria-pressed="false">Beste batterij</button>
+      <button id="s-warranty" data-sort="warranty" aria-pressed="false">Langste garantie</button>
+      <button id="s-top" data-top="1" aria-pressed="false">Alleen als nieuw</button>
+    </div>
+    <div id="others"><div class="empty">Laden…</div></div>
+  </section>
+
+  <section class="panel" aria-labelledby="hist-h">
+    <h2 id="hist-h">Prijsverloop</h2>
+    <div class="legend">
+      <span><i class="sw" style="background:var(--c17)"></i>iPhone 17 Pro, laagste prijs</span>
+      <span><i class="sw" style="background:var(--c18)"></i>iPhone 18 Pro, laagste prijs</span>
+    </div>
+    <div id="chart"></div>
+  </section>
+
+  <section class="panel">
+    <details>
+      <summary><h2>Net niet <span class="tiny" id="watch-n"></span></h2></summary>
+      <p class="small muted" style="margin:0 0 4px">Te duur (boven € 1.100) of uitverkocht. Komt vanzelf terug als het weer klopt.</p>
+      <div class="list" id="watch"></div>
+    </details>
+  </section>
+
+  <section class="panel">
+    <details>
+      <summary><h2>Wat betekent staat en batterij?</h2></summary>
+      <div class="explain">
+        <p><b>Staat.</b> "Als nieuw" (Premium, Zo goed als nieuw, A-grade): bijna geen krasjes. "Uitstekend": kleine sporen, alleen van dichtbij te zien. Slechtere staten tonen we niet.</p>
+        <p><b>Batterij.</b> 100% is nieuw. Apple raadt vervangen aan onder 80%. Bij dagelijks opladen zakt een batterij ongeveer 7% per jaar, daarom tonen we hoe lang hij naar schatting nog boven 80% blijft.</p>
+        <p><b>Prijs.</b> Inclusief verzendkosten waar de winkel die noemt. Controleer kleur en opties altijd op de site voordat je koopt.</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="panel">
+    <details>
+      <summary><h2>Gecontroleerde winkels <span class="tiny" id="ret-n"></span></h2></summary>
+      <div class="list" id="retailers"></div>
+    </details>
+  </section>
+</div>
+
+<script>
+(function(){
+  const MODELS={"17pro":{name:"iPhone 17 Pro",color:"var(--c17)"},"18pro":{name:"iPhone 18 Pro",color:"var(--c18)"}};
+  const MAIN="Swappie";
+  const S={listings:[],scans:[],meta:null,model:"17pro",sort:"price",topOnly:false,ok:{l:false,s:false,m:false}};
+  try{const u=JSON.parse(localStorage.getItem("radar-ui2")||"{}"); if(u.model) S.model=u.model;}catch(e){}
+  const $=s=>document.querySelector(s);
+  const e0=new Intl.NumberFormat("nl-NL",{style:"currency",currency:"EUR",maximumFractionDigits:0});
+  const e2=new Intl.NumberFormat("nl-NL",{style:"currency",currency:"EUR",minimumFractionDigits:2});
+  const eur=v=>v==null?"—":(Math.round(v)===v?e0.format(v):e2.format(v));
+  const tf=new Intl.DateTimeFormat("nl-NL",{timeZone:"Europe/Amsterdam",weekday:"short",day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"});
+  const tt=new Intl.DateTimeFormat("nl-NL",{timeZone:"Europe/Amsterdam",hour:"2-digit",minute:"2-digit"});
+  const td=new Intl.DateTimeFormat("nl-NL",{timeZone:"Europe/Amsterdam",day:"numeric",month:"short"});
+  const when=i=>{if(!i)return"—";const d=new Date(i);if(isNaN(d))return"—";const same=td.format(d)===td.format(new Date());return same?"vandaag "+tt.format(d):tf.format(d);};
+  const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  const tot=l=>l.total??l.price;
+
+  // batterij: niveau + geschatte levensduur tot 80% (≈7% per jaar)
+  function bat(b){
+    if(!b||b.type==="unknown") return {lvl:null,txt:"Niet vermeld door winkel",life:"Levensduur onbekend",score:0,cls:""};
+    if(b.type==="new") return {lvl:100,txt:"Nieuwe batterij (100%)",life:"Gaat naar schatting ± 3 jaar mee tot 80%",score:100,cls:"good"};
+    if(b.type==="range") return {lvl:b.min,txt:"Tussen "+b.min+"% en "+b.max+"%",life:"Wisselend: 0 tot ± 2,5 jaar tot 80%",score:b.min,cls:""};
+    const v=b.pct??b.min;
+    const yrs=Math.max(0,(v-80)/7); const y=yrs>=2.75?"± 3 jaar":yrs>=1.75?"± 2 jaar":yrs>=1.25?"± 1,5 jaar":yrs>=0.6?"± 1 jaar":"minder dan een jaar";
+    return {lvl:v,txt:(b.type==="verified"?v+"%":"Minimaal "+v+"%"),life:"Gaat naar schatting "+y+" mee tot 80%",score:v,cls:v>=95?"good":""};
+  }
+  function meter(lvl){ if(lvl==null) return ""; const c=lvl>=95?"var(--good)":lvl>=85?"var(--accent)":"var(--warn)"; return '<span class="meter" aria-hidden="true"><i style="width:'+lvl+'%;background:'+c+'"></i></span>'; }
+  function cond(l){ return l.conditionTier==="top" ? {short:"Als nieuw",sub:"Bijna geen krasjes"} : {short:"Uitstekend",sub:"Kleine sporen, alleen van dichtbij"}; }
+  function months(m){ return m%12===0 ? (m/12)+" jaar" : m+" maanden"; }
+  function isNew(l){ return S.scans.length>1 && l.firstSeen && (new Date(S.scans[0].t)-new Date(l.firstSeen))<26*3600e3; }
+  function isDrop(l){ return l.prevTotal!=null && tot(l)<l.prevTotal-0.5; }
+  function savings(l){ const np=S.meta?.newPrices?.[l.modelKey]; if(!np||l.storageGB!==np.storageGB) return null; const s=np.price-tot(l); return s>0?s:null; }
+  function phone(hex){ const c=hex||"#9aa1ab"; return '<svg class="phone" viewBox="0 0 40 56" aria-hidden="true"><rect x="2" y="1" width="36" height="54" rx="8" fill="'+esc(c)+'"/><rect x="2.5" y="1.5" width="35" height="53" rx="7.5" fill="none" stroke="rgb(0 0 0 / .18)"/><rect x="6" y="5" width="28" height="16" rx="5" fill="rgb(255 255 255 / .16)"/><circle cx="12" cy="10" r="2.8" fill="rgb(0 0 0 / .55)"/><circle cx="12" cy="17" r="2.8" fill="rgb(0 0 0 / .55)"/><circle cx="19" cy="13.5" r="2.8" fill="rgb(0 0 0 / .55)"/></svg>'; }
+
+  function card(l, opts){
+    const b=bat(l.battery), c=cond(l), sv=savings(l), main=l.retailer===MAIN;
+    const chips=[opts.cheapest?'<span class="chip good">Goedkoopst</span>':'', isNew(l)?'<span class="chip accent">Nieuw</span>':'', isDrop(l)?'<span class="chip good">Prijs gezakt (was '+eur(l.prevTotal)+')</span>':''].join("");
+    const ship = l.shippingVerified ? (l.shipping? "incl. "+eur(l.shipping)+" verzending" : "gratis verzending") : "verzendkosten niet vermeld";
+    return '<article class="card'+(main?' main':'')+'">'+
+      '<div class="card-top">'+phone(l.colorHex)+'<div style="min-width:0"><div class="who">'+esc(l.retailer)+'</div><div class="what">'+esc(MODELS[l.modelKey].name)+' · '+esc(l.storageGB)+' GB'+(l.color?' · '+esc(l.color):'')+'</div></div></div>'+
+      (chips?'<div class="chips">'+chips+'</div>':'')+
+      '<div class="price"><span class="p">'+eur(tot(l))+'</span><span class="s">'+ship+(sv?' · <span class="save">'+eur(sv)+' goedkoper dan nieuw</span>':'')+'</span></div>'+
+      '<dl class="facts">'+
+        '<div class="fact"><dt>Staat</dt><dd><b>'+esc(l.condition)+'</b>'+(String(l.condition).toLowerCase().startsWith(c.short.toLowerCase())?'':' · '+c.short)+'<span class="sub">'+c.sub+'</span></dd></div>'+
+        '<div class="fact"><dt>Batterij</dt><dd><b>'+esc(b.txt)+'</b>'+meter(b.lvl)+'<span class="sub">'+esc(b.life)+'</span></dd></div>'+
+        '<div class="fact"><dt>Garantie</dt><dd><b>'+months(l.warrantyMonths||12)+'</b></dd></div>'+
+      '</dl>'+
+      '<a class="btn" href="'+esc(l.url)+'" target="_blank" rel="noopener">Bekijk bij '+esc(l.retailer)+'</a>'+
+      (l.selectHint?'<div class="pick">Kies op de site: '+esc(l.selectHint)+'</div>':'')+
+      '<div class="tiny">Gecontroleerd '+esc(when(l.lastVerified))+(l.note?' · '+esc(l.note):'')+'</div>'+
+    '</article>';
+  }
+
+  function active(key){ return S.listings.filter(l=>l.status==="active"&&l.modelKey===key); }
+
+  function renderStatus(){
+    const m=S.meta, el=$("#status"), bn=$("#banners"); bn.innerHTML="";
+    if(!S.ok.m) return;
+    if(!m){ el.innerHTML='<span><span class="dot"></span>Nog geen check gedaan</span>'; return; }
+    const age=m.lastSuccessAt?(Date.now()-new Date(m.lastSuccessAt))/3600e3:Infinity;
+    let cls="ok"; if(m.lastStatus==="error")cls="bad"; else if(age>8||m.lastStatus==="partial")cls="warn";
+    el.innerHTML='<span><span class="dot '+cls+'"></span>Bijgewerkt <b>'+when(m.lastSuccessAt)+'</b></span><span>Volgende check <b>'+when(m.nextScanAt)+'</b></span>';
+    if(m.lastStatus==="error") bn.innerHTML='<div class="banner bad">De laatste check is mislukt. Prijzen zijn van '+esc(when(m.lastSuccessAt))+' en kunnen veranderd zijn.</div>';
+    else if(age>8) bn.innerHTML='<div class="banner warn">Al '+Math.round(age)+' uur geen nieuwe check. Prijzen kunnen veranderd zijn.</div>';
+  }
+
+  function renderSummary(){
+    if(!S.ok.l){ $("#summary").innerHTML=""; return; }
+    const a=active(S.model); const sw=a.filter(l=>l.retailer===MAIN);
+    const min=a.length?Math.min(...a.map(tot)):null, swmin=sw.length?Math.min(...sw.map(tot)):null;
+    $("#summary").innerHTML = a.length
+      ? '<span><b>'+a.length+'</b> deals</span><span>vanaf <b>'+eur(min)+'</b></span><span>Swappie vanaf <b>'+(swmin!=null?eur(swmin):"—")+'</b></span>'
+      : '<span>Nu geen deal onder € 1.100.</span>';
+  }
+
+  function renderSwappie(){
+    const host=$("#swappie");
+    if(!S.ok.l){ host.innerHTML='<div class="empty">Laden…</div>'; return; }
+    const a=active(S.model), min=a.length?Math.min(...a.map(tot)):null;
+    const sw=a.filter(l=>l.retailer===MAIN).sort((x,y)=>tot(x)-tot(y));
+    if(!sw.length){
+      const w=S.listings.filter(l=>l.modelKey===S.model&&l.retailer===MAIN&&l.status!=="active")[0];
+      host.innerHTML='<div class="empty">Swappie heeft nu geen '+MODELS[S.model].name+' in topstaat onder € 1.100'+(w?' ('+esc(w.statusReason||"niet beschikbaar")+')':'')+'. <a href="'+(S.model==="18pro"?"https://swappie.com/nl/model/iphone-18-pro/":"https://swappie.com/nl/model/iphone-17-pro/")+'" target="_blank" rel="noopener">Bekijk Swappie</a></div>';
+      return;
+    }
+    host.innerHTML='<div class="grid">'+sw.map(l=>card(l,{cheapest:tot(l)===min})).join("")+'</div>';
+  }
+
+  function renderOthers(){
+    document.querySelectorAll("[data-model]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.model===S.model)));
+    document.querySelectorAll("[data-sort]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.sort===S.sort)));
+    $("#s-top").setAttribute("aria-pressed",String(S.topOnly));
+    const host=$("#others");
+    if(!S.ok.l){ host.innerHTML='<div class="empty">Laden…</div>'; return; }
+    const a=active(S.model), min=a.length?Math.min(...a.map(tot)):null;
+    let rows=a.filter(l=>l.retailer!==MAIN);
+    const all=rows.length;
+    if(S.topOnly) rows=rows.filter(l=>l.conditionTier==="top");
+    const by={price:(x,y)=>tot(x)-tot(y), battery:(x,y)=>bat(y.battery).score-bat(x.battery).score||tot(x)-tot(y), warranty:(x,y)=>(y.warrantyMonths||0)-(x.warrantyMonths||0)||tot(x)-tot(y)}[S.sort];
+    rows.sort(by);
+    $("#other-n").textContent = all? rows.length+" van "+all : "";
+    if(!rows.length){ host.innerHTML='<div class="empty">'+(all?'Geen deals met dit filter.':'Nu geen '+MODELS[S.model].name+' onder € 1.100 bij andere winkels. Kijk bij "Net niet".')+'</div>'; return; }
+    host.innerHTML='<div class="grid three">'+rows.map(l=>card(l,{cheapest:tot(l)===min})).join("")+'</div>';
+  }
+
+  function renderChart(){
+    const host=$("#chart");
+    if(!S.ok.s){ host.innerHTML='<p class="tiny">Laden…</p>'; return; }
+    const scans=S.scans.slice().reverse().filter(s=>s.ok!==false);
+    const pts={"17pro":[],"18pro":[]};
+    scans.forEach(s=>{const t=new Date(s.t).getTime();["17pro","18pro"].forEach(k=>{const v=s.cheapest?.[k]??s.cheapestSeen?.[k]; if(v!=null) pts[k].push({t,v,q:s.cheapest?.[k]!=null});});});
+    const all=[...pts["17pro"],...pts["18pro"]];
+    if(!all.length){ host.innerHTML='<p class="tiny">Prijsverloop verschijnt na de eerste check.</p>'; return; }
+    const W=640,H=300,L=62,R=14,T=16,B=34;
+    let t0=Math.min(...all.map(p=>p.t)), t1=Math.max(...all.map(p=>p.t)); if(t1-t0<864e5){t0-=432e5;t1+=432e5;}
+    let v0=Math.min(...all.map(p=>p.v),900), v1=Math.max(...all.map(p=>p.v),1100); v0=Math.floor((v0-20)/100)*100; v1=Math.ceil((v1+20)/100)*100;
+    const x=t=>L+(t-t0)/(t1-t0)*(W-L-R), y=v=>T+(1-(v-v0)/(v1-v0))*(H-T-B);
+    let g="";
+    for(let v=v0;v<=v1;v+=100) g+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+y(v)+'" y2="'+y(v)+'" stroke="var(--line)"/><text x="'+(L-8)+'" y="'+(y(v)+4)+'" text-anchor="end">'+e0.format(v)+'</text>';
+    if(1100>v0&&1100<v1) g+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+y(1100)+'" y2="'+y(1100)+'" stroke="var(--warn)" stroke-dasharray="5 4"/><text x="'+(W-R)+'" y="'+(y(1100)-6)+'" text-anchor="end" style="fill:var(--warn)">max € 1.100</text>';
+    const n=Math.min(4,Math.max(2,Math.round((t1-t0)/864e5)+1));
+    for(let i=0;i<n;i++){const t=t0+(t1-t0)*i/(n-1); g+='<text x="'+x(t)+'" y="'+(H-10)+'" text-anchor="'+(i===0?'start':i===n-1?'end':'middle')+'">'+td.format(new Date(t))+'</text>';}
+    ["17pro","18pro"].forEach(k=>{const p=pts[k]; if(!p.length) return; const c=MODELS[k].color;
+      if(p.length>1) g+='<polyline fill="none" stroke="'+c+'" stroke-width="2.5" stroke-linejoin="round" points="'+p.map(q=>x(q.t)+','+y(q.v)).join(' ')+'"/>';
+      p.forEach((q,i)=>{g+='<circle cx="'+x(q.t)+'" cy="'+y(q.v)+'" r="'+(i===p.length-1?5:3)+'" fill="'+(q.q?c:'var(--surface)')+'" stroke="'+c+'" stroke-width="2"><title>'+MODELS[k].name+' '+eur(q.v)+'</title></circle>';});
+      const l=p[p.length-1], right=x(l.t)>W-R-90;
+      g+='<text x="'+(right?x(l.t)-10:x(l.t)+10)+'" y="'+(y(l.v)-9)+'" text-anchor="'+(right?'end':'start')+'" style="fill:'+c+';font-weight:500;font-size:13px">'+e0.format(l.v)+'</text>';});
+    host.innerHTML='<svg class="chart" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Laagste prijs per check">'+g+'</svg><p class="tiny" style="margin:6px 0 0">Elke 6 uur een nieuw punt. Open rondje: geen deal onder € 1.100, dus de laagste prijs die we zagen.</p>';
+  }
+
+  function renderSide(){
+    const w=S.listings.filter(l=>l.status!=="active").sort((a,b)=>a.modelKey.localeCompare(b.modelKey)||tot(a)-tot(b));
+    $("#watch-n").textContent=S.ok.l?"("+w.length+")":"";
+    $("#watch").innerHTML=w.length?w.map(l=>'<div class="it"><span><b>'+esc(l.retailer)+'</b> · '+esc(MODELS[l.modelKey].name)+'</span><span class="num">'+eur(tot(l))+'</span><span class="sub">'+esc(l.statusReason||"")+' · '+esc(l.condition)+' · batterij: '+esc(bat(l.battery).txt.toLowerCase())+' · <a href="'+esc(l.url)+'" target="_blank" rel="noopener">bekijk</a></span></div>').join(""):'<p class="tiny">Niets.</p>';
+    const rc=S.meta?.retailersChecked||[];
+    $("#ret-n").textContent=rc.length?"("+rc.length+")":"";
+    $("#retailers").innerHTML=rc.length?rc.map(r=>'<div class="it"><span><span class="dot '+(r.ok?'ok':'bad')+'"></span><b>'+esc(r.name)+'</b></span><span class="tiny">'+(r.ok?'gelukt':'mislukt')+'</span><span class="sub">'+esc(r.note||"")+'</span></div>').join(""):'<p class="tiny">Nog geen gegevens.</p>';
+  }
+
+  function renderModel(){ renderSummary(); renderSwappie(); renderOthers(); }
+  function renderAll(){ renderStatus(); renderModel(); renderChart(); renderSide(); }
+
+  document.querySelectorAll("[data-model]").forEach(b=>b.addEventListener("click",()=>{S.model=b.dataset.model; try{localStorage.setItem("radar-ui2",JSON.stringify({model:S.model}))}catch(e){} renderModel();}));
+  document.querySelectorAll("[data-sort]").forEach(b=>b.addEventListener("click",()=>{S.sort=b.dataset.sort; renderOthers();}));
+  $("#s-top").addEventListener("click",()=>{S.topOnly=!S.topOnly; renderOthers();});
+
+  renderAll();
+
+  async function load(){
+    try{
+      const r=await fetch("data.json?t="+Date.now(),{cache:"no-store"});
+      if(!r.ok) throw new Error(r.status);
+      const d=await r.json();
+      S.listings=d.listings||[]; S.scans=(d.scans||[]).slice().sort((a,b)=>new Date(b.t)-new Date(a.t)); S.meta=d.meta||null;
+      S.ok={l:true,s:true,m:true}; renderAll();
+    }catch(e){
+      S.ok={l:true,s:true,m:true}; renderAll();
+      $("#banners").insertAdjacentHTML("beforeend",'<div class="banner bad">De deals konden niet laden. Ververs de pagina.</div>');
+    }
+  }
+  load();
+  setInterval(load, 10*60*1000);
+})();
+</script>
+</body>
+</html>
