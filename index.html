@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Refurbished iPhone 17 Pro en 18 Pro deals in topstaat, met Swappie voorop. Elke 6 uur gecheckt.">
+<meta name="description" content="Refurbished iPhone 17 Pro en 18 Pro deals in topstaat, met Swappie voorop.">
 <meta name="theme-color" content="#0f6b52">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 56'%3E%3Crect x='2' y='1' width='36' height='54' rx='8' fill='%230f6b52'/%3E%3C/svg%3E">
 <title>iPhone Deal Radar</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
 <style>
 :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 body{margin:0}
@@ -22,8 +22,8 @@ img{max-width:100%}
   --main:#0f6b52; --main-soft:#e0f2ec; --main-fg:#ffffff;
   --good:#16794a; --good-soft:#dcf2e6; --warn:#955800; --warn-soft:#fbedd3; --bad:#b4232c; --bad-soft:#fbe0e1;
   --c17:#2747c9; --c18:#b0541f;
-  --font-display:"Schibsted Grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-data:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --font-display:"Roboto", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-data:"Roboto", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --r:16px;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
@@ -45,9 +45,9 @@ html{-webkit-text-size-adjust:100%}
 body{background:var(--bg);color:var(--fg);font-family:var(--font-display);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
 .wrap{max-width:1100px;margin:0 auto;padding-inline:16px;padding-block:16px 48px;display:flex;flex-direction:column;gap:22px}
 h1,h2,h3{margin:0;text-wrap:balance;letter-spacing:-.01em}
-h1{font-size:clamp(24px,6vw,32px);font-weight:800;line-height:1.15}
+h1{font-size:clamp(26px,6vw,34px);font-weight:900;line-height:1.15}
 h2{font-size:20px;font-weight:700}
-.num{font-family:var(--font-data);font-variant-numeric:tabular-nums}
+.num{font-variant-numeric:tabular-nums}
 a{color:var(--accent)}
 :focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:8px}
 button{font:inherit;color:inherit}
@@ -82,17 +82,17 @@ button{font:inherit;color:inherit}
 .card.main{border:2px solid var(--main)}
 .card-top{display:flex;align-items:center;gap:12px}
 .phone{width:40px;height:56px;flex:none}
-.card-top .who{font-weight:700;font-size:17px;line-height:1.2}
-.card-top .what{font-size:14px;color:var(--fg-2)}
+.card-top .who{font-weight:700;font-size:15px;line-height:1.2;color:var(--fg-2)}
+.card-top .what{font-size:16.5px;color:var(--fg);font-weight:500;line-height:1.3;margin-top:2px}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
 .chip{font-size:12.5px;font-weight:600;padding:3px 9px;border-radius:999px;background:var(--surface-2);color:var(--fg-2);white-space:nowrap}
 .chip.good{background:var(--good-soft);color:var(--good)} .chip.main{background:var(--main-soft);color:var(--main)} .chip.accent{background:var(--accent-soft);color:var(--accent)} .chip.warn{background:var(--warn-soft);color:var(--warn)}
 .price{display:flex;flex-direction:column;gap:2px}
-.price .p{font-size:36px;font-weight:800;letter-spacing:-.02em;line-height:1}
+.price .p{font-size:36px;font-weight:900;font-variant-numeric:tabular-nums;letter-spacing:-.02em;line-height:1}
 .price .s{font-size:13.5px;color:var(--fg-2)}
 .price .s .save{color:var(--good);font-weight:600}
 .facts{display:flex;flex-direction:column;gap:10px;margin:0}
-.fact{display:grid;grid-template-columns:78px 1fr;gap:10px;align-items:start}
+.fact{display:grid;grid-template-columns:72px 1fr;gap:10px;align-items:start}
 .fact dt{color:var(--fg-3);font-size:14px;padding-top:1px}
 .fact dd{margin:0;min-width:0;font-size:15px}
 .fact dd .sub{display:block;font-size:13px;color:var(--fg-2)}
@@ -134,7 +134,6 @@ details[open] summary::after{content:"–"}
 <div class="wrap">
   <header class="top">
     <h1>iPhone Deal Radar</h1>
-    <p>Refurbished iPhone 17 Pro en 18 Pro, 256 GB, in topstaat. Elke 6 uur gecheckt.</p>
     <div class="status" id="status" aria-live="polite"><span class="muted">Gegevens laden…</span></div>
   </header>
 
@@ -145,20 +144,17 @@ details[open] summary::after{content:"–"}
     <button id="m-18pro" data-model="18pro" aria-pressed="false">iPhone 18 Pro</button>
   </nav>
 
-  <div class="summary" id="summary"></div>
-
   <section class="sec" aria-labelledby="sw-h">
-    <div class="sec-head"><h2 id="sw-h">Bij Swappie</h2><span class="tiny">Onze vaste winkel</span></div>
+    <div class="sec-head"><h2 id="sw-h">Swappie</h2></div>
     <div id="swappie"><div class="empty">Laden…</div></div>
   </section>
 
   <section class="sec" aria-labelledby="other-h">
-    <div class="sec-head"><h2 id="other-h">Andere winkels</h2><span class="tiny" id="other-n"></span></div>
+    <div class="sec-head"><h2 id="other-h">Andere winkels</h2></div>
     <div class="sorter" role="group" aria-label="Sorteren">
       <button id="s-price" data-sort="price" aria-pressed="true">Laagste prijs</button>
-      <button id="s-battery" data-sort="battery" aria-pressed="false">Beste batterij</button>
-      <button id="s-warranty" data-sort="warranty" aria-pressed="false">Langste garantie</button>
-      <button id="s-top" data-top="1" aria-pressed="false">Alleen als nieuw</button>
+      <button id="s-battery" data-sort="battery" aria-pressed="false">Batterij</button>
+      <button id="s-warranty" data-sort="warranty" aria-pressed="false">Garantie</button>
     </div>
     <div id="others"><div class="empty">Laden…</div></div>
   </section>
@@ -166,8 +162,8 @@ details[open] summary::after{content:"–"}
   <section class="panel" aria-labelledby="hist-h">
     <h2 id="hist-h">Prijsverloop</h2>
     <div class="legend">
-      <span><i class="sw" style="background:var(--c17)"></i>iPhone 17 Pro, laagste prijs</span>
-      <span><i class="sw" style="background:var(--c18)"></i>iPhone 18 Pro, laagste prijs</span>
+      <span><i class="sw" style="background:var(--c17)"></i>iPhone 17 Pro</span>
+      <span><i class="sw" style="background:var(--c18)"></i>iPhone 18 Pro</span>
     </div>
     <div id="chart"></div>
   </section>
@@ -175,28 +171,10 @@ details[open] summary::after{content:"–"}
   <section class="panel">
     <details>
       <summary><h2>Net niet <span class="tiny" id="watch-n"></span></h2></summary>
-      <p class="small muted" style="margin:0 0 4px">Te duur (boven € 1.100) of uitverkocht. Komt vanzelf terug als het weer klopt.</p>
       <div class="list" id="watch"></div>
     </details>
   </section>
 
-  <section class="panel">
-    <details>
-      <summary><h2>Wat betekent staat en batterij?</h2></summary>
-      <div class="explain">
-        <p><b>Staat.</b> "Als nieuw" (Premium, Zo goed als nieuw, A-grade): bijna geen krasjes. "Uitstekend": kleine sporen, alleen van dichtbij te zien. Slechtere staten tonen we niet.</p>
-        <p><b>Batterij.</b> 100% is nieuw. Apple raadt vervangen aan onder 80%. Bij dagelijks opladen zakt een batterij ongeveer 7% per jaar, daarom tonen we hoe lang hij naar schatting nog boven 80% blijft.</p>
-        <p><b>Prijs.</b> Inclusief verzendkosten waar de winkel die noemt. Controleer kleur en opties altijd op de site voordat je koopt.</p>
-      </div>
-    </details>
-  </section>
-
-  <section class="panel">
-    <details>
-      <summary><h2>Gecontroleerde winkels <span class="tiny" id="ret-n"></span></h2></summary>
-      <div class="list" id="retailers"></div>
-    </details>
-  </section>
 </div>
 
 <script>
@@ -218,12 +196,12 @@ details[open] summary::after{content:"–"}
 
   // batterij: niveau + geschatte levensduur tot 80% (≈7% per jaar)
   function bat(b){
-    if(!b||b.type==="unknown") return {lvl:null,txt:"Niet vermeld door winkel",life:"Levensduur onbekend",score:0,cls:""};
-    if(b.type==="new") return {lvl:100,txt:"Nieuwe batterij (100%)",life:"Gaat naar schatting ± 3 jaar mee tot 80%",score:100,cls:"good"};
-    if(b.type==="range") return {lvl:b.min,txt:"Tussen "+b.min+"% en "+b.max+"%",life:"Wisselend: 0 tot ± 2,5 jaar tot 80%",score:b.min,cls:""};
+    if(!b||b.type==="unknown") return {lvl:null,txt:"Onbekend",life:"",score:0,cls:""};
+    if(b.type==="new") return {lvl:100,txt:"Nieuw",life:"± 3 jaar",score:100,cls:"good"};
+    if(b.type==="range") return {lvl:b.min,txt:b.min+"–"+b.max+"%",life:"0 tot ± 2,5 jaar",score:b.min,cls:""};
     const v=b.pct??b.min;
     const yrs=Math.max(0,(v-80)/7); const y=yrs>=2.75?"± 3 jaar":yrs>=1.75?"± 2 jaar":yrs>=1.25?"± 1,5 jaar":yrs>=0.6?"± 1 jaar":"minder dan een jaar";
-    return {lvl:v,txt:(b.type==="verified"?v+"%":"Minimaal "+v+"%"),life:"Gaat naar schatting "+y+" mee tot 80%",score:v,cls:v>=95?"good":""};
+    return {lvl:v,txt:(b.type==="verified"?v+"%":"Min. "+v+"%"),life:y,score:v,cls:v>=95?"good":""};
   }
   function meter(lvl){ if(lvl==null) return ""; const c=lvl>=95?"var(--good)":lvl>=85?"var(--accent)":"var(--warn)"; return '<span class="meter" aria-hidden="true"><i style="width:'+lvl+'%;background:'+c+'"></i></span>'; }
   function cond(l){ return l.conditionTier==="top" ? {short:"Als nieuw",sub:"Bijna geen krasjes"} : {short:"Uitstekend",sub:"Kleine sporen, alleen van dichtbij"}; }
@@ -234,21 +212,18 @@ details[open] summary::after{content:"–"}
   function phone(hex){ const c=hex||"#9aa1ab"; return '<svg class="phone" viewBox="0 0 40 56" aria-hidden="true"><rect x="2" y="1" width="36" height="54" rx="8" fill="'+esc(c)+'"/><rect x="2.5" y="1.5" width="35" height="53" rx="7.5" fill="none" stroke="rgb(0 0 0 / .18)"/><rect x="6" y="5" width="28" height="16" rx="5" fill="rgb(255 255 255 / .16)"/><circle cx="12" cy="10" r="2.8" fill="rgb(0 0 0 / .55)"/><circle cx="12" cy="17" r="2.8" fill="rgb(0 0 0 / .55)"/><circle cx="19" cy="13.5" r="2.8" fill="rgb(0 0 0 / .55)"/></svg>'; }
 
   function card(l, opts){
-    const b=bat(l.battery), c=cond(l), sv=savings(l), main=l.retailer===MAIN;
-    const chips=[opts.cheapest?'<span class="chip good">Goedkoopst</span>':'', isNew(l)?'<span class="chip accent">Nieuw</span>':'', isDrop(l)?'<span class="chip good">Prijs gezakt (was '+eur(l.prevTotal)+')</span>':''].join("");
-    const ship = l.shippingVerified ? (l.shipping? "incl. "+eur(l.shipping)+" verzending" : "gratis verzending") : "verzendkosten niet vermeld";
+    const b=bat(l.battery), main=l.retailer===MAIN;
+    const chips=[opts.cheapest?'<span class="chip good">Goedkoopst</span>':'', isDrop(l)?'<span class="chip good">Prijs gezakt</span>':'', isNew(l)?'<span class="chip accent">Nieuw</span>':''].join("");
     return '<article class="card'+(main?' main':'')+'">'+
-      '<div class="card-top">'+phone(l.colorHex)+'<div style="min-width:0"><div class="who">'+esc(l.retailer)+'</div><div class="what">'+esc(MODELS[l.modelKey].name)+' · '+esc(l.storageGB)+' GB'+(l.color?' · '+esc(l.color):'')+'</div></div></div>'+
+      '<div class="card-top">'+phone(l.colorHex)+'<div style="min-width:0;flex:1"><div class="who">'+esc(l.retailer)+'</div><div class="what">'+esc(MODELS[l.modelKey].name)+' · '+esc(l.storageGB)+' GB'+(l.color?' · '+esc(l.color):'')+'</div></div></div>'+
       (chips?'<div class="chips">'+chips+'</div>':'')+
-      '<div class="price"><span class="p">'+eur(tot(l))+'</span><span class="s">'+ship+(sv?' · <span class="save">'+eur(sv)+' goedkoper dan nieuw</span>':'')+'</span></div>'+
+      '<div class="price"><span class="p">'+eur(tot(l))+'</span></div>'+
       '<dl class="facts">'+
-        '<div class="fact"><dt>Staat</dt><dd><b>'+esc(l.condition)+'</b>'+(String(l.condition).toLowerCase().startsWith(c.short.toLowerCase())?'':' · '+c.short)+'<span class="sub">'+c.sub+'</span></dd></div>'+
-        '<div class="fact"><dt>Batterij</dt><dd><b>'+esc(b.txt)+'</b>'+meter(b.lvl)+'<span class="sub">'+esc(b.life)+'</span></dd></div>'+
+        '<div class="fact"><dt>Staat</dt><dd><b>'+esc(l.condition)+'</b></dd></div>'+
+        '<div class="fact"><dt>Batterij</dt><dd><b>'+esc(b.txt)+'</b>'+(b.life?' <span class="muted">· '+esc(b.life)+'</span>':'')+meter(b.lvl)+'</dd></div>'+
         '<div class="fact"><dt>Garantie</dt><dd><b>'+months(l.warrantyMonths||12)+'</b></dd></div>'+
       '</dl>'+
       '<a class="btn" href="'+esc(l.url)+'" target="_blank" rel="noopener">Bekijk bij '+esc(l.retailer)+'</a>'+
-      (l.selectHint?'<div class="pick">Kies op de site: '+esc(l.selectHint)+'</div>':'')+
-      '<div class="tiny">Gecontroleerd '+esc(when(l.lastVerified))+(l.note?' · '+esc(l.note):'')+'</div>'+
     '</article>';
   }
 
@@ -266,6 +241,7 @@ details[open] summary::after{content:"–"}
   }
 
   function renderSummary(){
+    if(!$("#summary")) return;
     if(!S.ok.l){ $("#summary").innerHTML=""; return; }
     const a=active(S.model); const sw=a.filter(l=>l.retailer===MAIN);
     const min=a.length?Math.min(...a.map(tot)):null, swmin=sw.length?Math.min(...sw.map(tot)):null;
@@ -281,7 +257,7 @@ details[open] summary::after{content:"–"}
     const sw=a.filter(l=>l.retailer===MAIN).sort((x,y)=>tot(x)-tot(y));
     if(!sw.length){
       const w=S.listings.filter(l=>l.modelKey===S.model&&l.retailer===MAIN&&l.status!=="active")[0];
-      host.innerHTML='<div class="empty">Swappie heeft nu geen '+MODELS[S.model].name+' in topstaat onder € 1.100'+(w?' ('+esc(w.statusReason||"niet beschikbaar")+')':'')+'. <a href="'+(S.model==="18pro"?"https://swappie.com/nl/model/iphone-18-pro/":"https://swappie.com/nl/model/iphone-17-pro/")+'" target="_blank" rel="noopener">Bekijk Swappie</a></div>';
+      host.innerHTML='<div class="empty">Nu niet beschikbaar bij Swappie. <a href="'+(S.model==="18pro"?"https://swappie.com/nl/model/iphone-18-pro/":"https://swappie.com/nl/model/iphone-17-pro/")+'" target="_blank" rel="noopener">Bekijk Swappie</a></div>';
       return;
     }
     host.innerHTML='<div class="grid">'+sw.map(l=>card(l,{cheapest:tot(l)===min})).join("")+'</div>';
@@ -290,7 +266,6 @@ details[open] summary::after{content:"–"}
   function renderOthers(){
     document.querySelectorAll("[data-model]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.model===S.model)));
     document.querySelectorAll("[data-sort]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.sort===S.sort)));
-    $("#s-top").setAttribute("aria-pressed",String(S.topOnly));
     const host=$("#others");
     if(!S.ok.l){ host.innerHTML='<div class="empty">Laden…</div>'; return; }
     const a=active(S.model), min=a.length?Math.min(...a.map(tot)):null;
@@ -299,8 +274,7 @@ details[open] summary::after{content:"–"}
     if(S.topOnly) rows=rows.filter(l=>l.conditionTier==="top");
     const by={price:(x,y)=>tot(x)-tot(y), battery:(x,y)=>bat(y.battery).score-bat(x.battery).score||tot(x)-tot(y), warranty:(x,y)=>(y.warrantyMonths||0)-(x.warrantyMonths||0)||tot(x)-tot(y)}[S.sort];
     rows.sort(by);
-    $("#other-n").textContent = all? rows.length+" van "+all : "";
-    if(!rows.length){ host.innerHTML='<div class="empty">'+(all?'Geen deals met dit filter.':'Nu geen '+MODELS[S.model].name+' onder € 1.100 bij andere winkels. Kijk bij "Net niet".')+'</div>'; return; }
+    if(!rows.length){ host.innerHTML='<div class="empty">Nu geen deals onder € 1.100.</div>'; return; }
     host.innerHTML='<div class="grid three">'+rows.map(l=>card(l,{cheapest:tot(l)===min})).join("")+'</div>';
   }
 
@@ -311,7 +285,7 @@ details[open] summary::after{content:"–"}
     const pts={"17pro":[],"18pro":[]};
     scans.forEach(s=>{const t=new Date(s.t).getTime();["17pro","18pro"].forEach(k=>{const v=s.cheapest?.[k]??s.cheapestSeen?.[k]; if(v!=null) pts[k].push({t,v,q:s.cheapest?.[k]!=null});});});
     const all=[...pts["17pro"],...pts["18pro"]];
-    if(!all.length){ host.innerHTML='<p class="tiny">Prijsverloop verschijnt na de eerste check.</p>'; return; }
+    if(!all.length){ host.innerHTML='<p class="tiny">Nog geen gegevens.</p>'; return; }
     const W=640,H=300,L=62,R=14,T=16,B=34;
     let t0=Math.min(...all.map(p=>p.t)), t1=Math.max(...all.map(p=>p.t)); if(t1-t0<864e5){t0-=432e5;t1+=432e5;}
     let v0=Math.min(...all.map(p=>p.v),900), v1=Math.max(...all.map(p=>p.v),1100); v0=Math.floor((v0-20)/100)*100; v1=Math.ceil((v1+20)/100)*100;
@@ -326,14 +300,14 @@ details[open] summary::after{content:"–"}
       p.forEach((q,i)=>{g+='<circle cx="'+x(q.t)+'" cy="'+y(q.v)+'" r="'+(i===p.length-1?5:3)+'" fill="'+(q.q?c:'var(--surface)')+'" stroke="'+c+'" stroke-width="2"><title>'+MODELS[k].name+' '+eur(q.v)+'</title></circle>';});
       const l=p[p.length-1], right=x(l.t)>W-R-90;
       g+='<text x="'+(right?x(l.t)-10:x(l.t)+10)+'" y="'+(y(l.v)-9)+'" text-anchor="'+(right?'end':'start')+'" style="fill:'+c+';font-weight:500;font-size:13px">'+e0.format(l.v)+'</text>';});
-    host.innerHTML='<svg class="chart" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Laagste prijs per check">'+g+'</svg><p class="tiny" style="margin:6px 0 0">Elke 6 uur een nieuw punt. Open rondje: geen deal onder € 1.100, dus de laagste prijs die we zagen.</p>';
+    host.innerHTML='<svg class="chart" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Laagste prijs per check">'+g+'</svg>';
   }
 
   function renderSide(){
     const w=S.listings.filter(l=>l.status!=="active").sort((a,b)=>a.modelKey.localeCompare(b.modelKey)||tot(a)-tot(b));
     $("#watch-n").textContent=S.ok.l?"("+w.length+")":"";
-    $("#watch").innerHTML=w.length?w.map(l=>'<div class="it"><span><b>'+esc(l.retailer)+'</b> · '+esc(MODELS[l.modelKey].name)+'</span><span class="num">'+eur(tot(l))+'</span><span class="sub">'+esc(l.statusReason||"")+' · '+esc(l.condition)+' · batterij: '+esc(bat(l.battery).txt.toLowerCase())+' · <a href="'+esc(l.url)+'" target="_blank" rel="noopener">bekijk</a></span></div>').join(""):'<p class="tiny">Niets.</p>';
-    const rc=S.meta?.retailersChecked||[];
+    $("#watch").innerHTML=w.length?w.map(l=>'<div class="it"><span><b>'+esc(l.retailer)+'</b> · '+esc(MODELS[l.modelKey].name)+'</span><span class="num">'+eur(tot(l))+'</span><span class="sub">'+esc(l.statusReason||"")+' · <a href="'+esc(l.url)+'" target="_blank" rel="noopener">bekijk</a></span></div>').join(""):'<p class="tiny">Niets.</p>';
+    const rc=S.meta?.retailersChecked||[]; if(!$("#retailers")) return;
     $("#ret-n").textContent=rc.length?"("+rc.length+")":"";
     $("#retailers").innerHTML=rc.length?rc.map(r=>'<div class="it"><span><span class="dot '+(r.ok?'ok':'bad')+'"></span><b>'+esc(r.name)+'</b></span><span class="tiny">'+(r.ok?'gelukt':'mislukt')+'</span><span class="sub">'+esc(r.note||"")+'</span></div>').join(""):'<p class="tiny">Nog geen gegevens.</p>';
   }
@@ -343,7 +317,6 @@ details[open] summary::after{content:"–"}
 
   document.querySelectorAll("[data-model]").forEach(b=>b.addEventListener("click",()=>{S.model=b.dataset.model; try{localStorage.setItem("radar-ui2",JSON.stringify({model:S.model}))}catch(e){} renderModel();}));
   document.querySelectorAll("[data-sort]").forEach(b=>b.addEventListener("click",()=>{S.sort=b.dataset.sort; renderOthers();}));
-  $("#s-top").addEventListener("click",()=>{S.topOnly=!S.topOnly; renderOthers();});
 
   renderAll();
 
