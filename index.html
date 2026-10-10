@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Refurbished iPhone 17 Pro en 18 Pro deals in topstaat, met Swappie voorop.">
+<meta name="description" content="Refurbished iPhone 17 Pro deals in topstaat, met Swappie voorop.">
 <meta name="theme-color" content="#0f6b52">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 56'%3E%3Crect x='2' y='1' width='36' height='54' rx='8' fill='%230f6b52'/%3E%3C/svg%3E">
 <title>iPhone Deal Radar</title>
@@ -14,7 +14,7 @@
 body{margin:0}
 img{max-width:100%}
 [hidden]{display:none!important}
-/* Layout: mobile-first single column → status → model tabs → Swappie first → andere winkels → prijsverloop → net niet / uitleg */
+/* Layout: mobile-first single column → status → Swappie → andere winkels → prijsverloop → net niet */
 :root{
   --bg:#f3f4f6; --surface:#ffffff; --surface-2:#eceef2; --line:#dcdfe5;
   --fg:#16191f; --fg-2:#4a5260; --fg-3:#737b88;
@@ -62,13 +62,6 @@ button{font:inherit;color:inherit}
 .dot.ok{background:var(--good)} .dot.warn{background:var(--warn)} .dot.bad{background:var(--bad)}
 .banner{border-radius:12px;padding:12px 14px;font-size:14.5px}
 .banner.warn{background:var(--warn-soft);color:var(--warn)} .banner.bad{background:var(--bad-soft);color:var(--bad)} .banner.info{background:var(--surface-2);color:var(--fg-2)}
-
-/* tabs */
-.tabs{display:grid;grid-template-columns:1fr 1fr;background:var(--surface-2);border-radius:14px;padding:4px;gap:4px;position:sticky;top:env(safe-area-inset-top,0px);z-index:5;box-shadow:0 0 0 8px var(--bg)}
-.tabs button{border:0;background:transparent;min-height:46px;border-radius:11px;font-weight:700;font-size:16px;color:var(--fg-2);cursor:pointer}
-.tabs button[aria-pressed="true"]{background:var(--surface);color:var(--fg);box-shadow:0 1px 3px rgb(0 0 0 / .14)}
-.summary{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:15px;color:var(--fg-2)}
-.summary b{color:var(--fg);font-family:var(--font-data);font-weight:500}
 
 /* secties */
 .sec{display:flex;flex-direction:column;gap:12px}
@@ -139,10 +132,11 @@ details[open] summary::after{content:"–"}
 
   <div id="banners" style="display:flex;flex-direction:column;gap:8px"></div>
 
-  <nav class="tabs" role="group" aria-label="Kies model">
-    <button id="m-17pro" data-model="17pro" aria-pressed="true">iPhone 17 Pro</button>
-    <button id="m-18pro" data-model="18pro" aria-pressed="false">iPhone 18 Pro</button>
-  </nav>
+  <div class="sorter" role="group" aria-label="Sorteren">
+    <button id="s-price" data-sort="price" aria-pressed="true">Laagste prijs</button>
+    <button id="s-battery" data-sort="battery" aria-pressed="false">Batterij</button>
+    <button id="s-warranty" data-sort="warranty" aria-pressed="false">Garantie</button>
+  </div>
 
   <section class="sec" aria-labelledby="sw-h">
     <div class="sec-head"><h2 id="sw-h">Swappie</h2></div>
@@ -151,20 +145,11 @@ details[open] summary::after{content:"–"}
 
   <section class="sec" aria-labelledby="other-h">
     <div class="sec-head"><h2 id="other-h">Andere winkels</h2></div>
-    <div class="sorter" role="group" aria-label="Sorteren">
-      <button id="s-price" data-sort="price" aria-pressed="true">Laagste prijs</button>
-      <button id="s-battery" data-sort="battery" aria-pressed="false">Batterij</button>
-      <button id="s-warranty" data-sort="warranty" aria-pressed="false">Garantie</button>
-    </div>
     <div id="others"><div class="empty">Laden…</div></div>
   </section>
 
   <section class="panel" aria-labelledby="hist-h">
     <h2 id="hist-h">Prijsverloop</h2>
-    <div class="legend">
-      <span><i class="sw" style="background:var(--c17)"></i>iPhone 17 Pro</span>
-      <span><i class="sw" style="background:var(--c18)"></i>iPhone 18 Pro</span>
-    </div>
     <div id="chart"></div>
   </section>
 
@@ -179,11 +164,10 @@ details[open] summary::after{content:"–"}
 
 <script>
 (function(){
-  const MODELS={"17pro":{name:"iPhone 17 Pro",color:"var(--c17)"},"18pro":{name:"iPhone 18 Pro",color:"var(--c18)"}};
+  const MODELS={"17pro":{name:"iPhone 17 Pro",color:"var(--c17)"}};
   const MAIN="Swappie";
   const S={listings:[],scans:[],meta:null,model:"17pro",sort:"price",topOnly:false,ok:{l:false,s:false,m:false}};
-  try{const u=JSON.parse(localStorage.getItem("radar-ui2")||"{}"); if(u.model) S.model=u.model;}catch(e){}
-  const $=s=>document.querySelector(s);
+    const $=s=>document.querySelector(s);
   const e0=new Intl.NumberFormat("nl-NL",{style:"currency",currency:"EUR",maximumFractionDigits:0});
   const e2=new Intl.NumberFormat("nl-NL",{style:"currency",currency:"EUR",minimumFractionDigits:2});
   const eur=v=>v==null?"—":(Math.round(v)===v?e0.format(v):e2.format(v));
@@ -227,6 +211,7 @@ details[open] summary::after{content:"–"}
     '</article>';
   }
 
+  function sortBy(){ return {price:(x,y)=>tot(x)-tot(y), battery:(x,y)=>bat(y.battery).score-bat(x.battery).score||tot(x)-tot(y), warranty:(x,y)=>(y.warrantyMonths||0)-(x.warrantyMonths||0)||tot(x)-tot(y)}[S.sort]; }
   function active(key){ return S.listings.filter(l=>l.status==="active"&&l.modelKey===key); }
 
   function renderStatus(){
@@ -254,17 +239,16 @@ details[open] summary::after{content:"–"}
     const host=$("#swappie");
     if(!S.ok.l){ host.innerHTML='<div class="empty">Laden…</div>'; return; }
     const a=active(S.model), min=a.length?Math.min(...a.map(tot)):null;
-    const sw=a.filter(l=>l.retailer===MAIN).sort((x,y)=>tot(x)-tot(y));
+    const sw=a.filter(l=>l.retailer===MAIN).sort(sortBy());
     if(!sw.length){
       const w=S.listings.filter(l=>l.modelKey===S.model&&l.retailer===MAIN&&l.status!=="active")[0];
-      host.innerHTML='<div class="empty">Nu niet beschikbaar bij Swappie. <a href="'+(S.model==="18pro"?"https://swappie.com/nl/model/iphone-18-pro/":"https://swappie.com/nl/model/iphone-17-pro/")+'" target="_blank" rel="noopener">Bekijk Swappie</a></div>';
+      host.innerHTML='<div class="empty">Nu niet beschikbaar bij Swappie. <a href="https://swappie.com/nl/model/iphone-17-pro/" target="_blank" rel="noopener">Bekijk Swappie</a></div>';
       return;
     }
     host.innerHTML='<div class="grid">'+sw.map(l=>card(l,{cheapest:tot(l)===min})).join("")+'</div>';
   }
 
   function renderOthers(){
-    document.querySelectorAll("[data-model]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.model===S.model)));
     document.querySelectorAll("[data-sort]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.sort===S.sort)));
     const host=$("#others");
     if(!S.ok.l){ host.innerHTML='<div class="empty">Laden…</div>'; return; }
@@ -272,8 +256,7 @@ details[open] summary::after{content:"–"}
     let rows=a.filter(l=>l.retailer!==MAIN);
     const all=rows.length;
     if(S.topOnly) rows=rows.filter(l=>l.conditionTier==="top");
-    const by={price:(x,y)=>tot(x)-tot(y), battery:(x,y)=>bat(y.battery).score-bat(x.battery).score||tot(x)-tot(y), warranty:(x,y)=>(y.warrantyMonths||0)-(x.warrantyMonths||0)||tot(x)-tot(y)}[S.sort];
-    rows.sort(by);
+    rows.sort(sortBy());
     if(!rows.length){ host.innerHTML='<div class="empty">Nu geen deals onder € 1.100.</div>'; return; }
     host.innerHTML='<div class="grid three">'+rows.map(l=>card(l,{cheapest:tot(l)===min})).join("")+'</div>';
   }
@@ -282,9 +265,9 @@ details[open] summary::after{content:"–"}
     const host=$("#chart");
     if(!S.ok.s){ host.innerHTML='<p class="tiny">Laden…</p>'; return; }
     const scans=S.scans.slice().reverse().filter(s=>s.ok!==false);
-    const pts={"17pro":[],"18pro":[]};
-    scans.forEach(s=>{const t=new Date(s.t).getTime();["17pro","18pro"].forEach(k=>{const v=s.cheapest?.[k]??s.cheapestSeen?.[k]; if(v!=null) pts[k].push({t,v,q:s.cheapest?.[k]!=null});});});
-    const all=[...pts["17pro"],...pts["18pro"]];
+    const pts={"17pro":[]};
+    scans.forEach(s=>{const t=new Date(s.t).getTime();["17pro"].forEach(k=>{const v=s.cheapest?.[k]??s.cheapestSeen?.[k]; if(v!=null) pts[k].push({t,v,q:s.cheapest?.[k]!=null});});});
+    const all=[...pts["17pro"]];
     if(!all.length){ host.innerHTML='<p class="tiny">Nog geen gegevens.</p>'; return; }
     const W=640,H=300,L=62,R=14,T=16,B=34;
     let t0=Math.min(...all.map(p=>p.t)), t1=Math.max(...all.map(p=>p.t)); if(t1-t0<864e5){t0-=432e5;t1+=432e5;}
@@ -295,7 +278,7 @@ details[open] summary::after{content:"–"}
     if(1100>v0&&1100<v1) g+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+y(1100)+'" y2="'+y(1100)+'" stroke="var(--warn)" stroke-dasharray="5 4"/><text x="'+(W-R)+'" y="'+(y(1100)-6)+'" text-anchor="end" style="fill:var(--warn)">max € 1.100</text>';
     const n=Math.min(4,Math.max(2,Math.round((t1-t0)/864e5)+1));
     for(let i=0;i<n;i++){const t=t0+(t1-t0)*i/(n-1); g+='<text x="'+x(t)+'" y="'+(H-10)+'" text-anchor="'+(i===0?'start':i===n-1?'end':'middle')+'">'+td.format(new Date(t))+'</text>';}
-    ["17pro","18pro"].forEach(k=>{const p=pts[k]; if(!p.length) return; const c=MODELS[k].color;
+    ["17pro"].forEach(k=>{const p=pts[k]; if(!p.length) return; const c=MODELS[k].color;
       if(p.length>1) g+='<polyline fill="none" stroke="'+c+'" stroke-width="2.5" stroke-linejoin="round" points="'+p.map(q=>x(q.t)+','+y(q.v)).join(' ')+'"/>';
       p.forEach((q,i)=>{g+='<circle cx="'+x(q.t)+'" cy="'+y(q.v)+'" r="'+(i===p.length-1?5:3)+'" fill="'+(q.q?c:'var(--surface)')+'" stroke="'+c+'" stroke-width="2"><title>'+MODELS[k].name+' '+eur(q.v)+'</title></circle>';});
       const l=p[p.length-1], right=x(l.t)>W-R-90;
@@ -304,9 +287,9 @@ details[open] summary::after{content:"–"}
   }
 
   function renderSide(){
-    const w=S.listings.filter(l=>l.status!=="active").sort((a,b)=>a.modelKey.localeCompare(b.modelKey)||tot(a)-tot(b));
+    const w=S.listings.filter(l=>l.status!=="active").sort((a,b)=>tot(a)-tot(b));
     $("#watch-n").textContent=S.ok.l?"("+w.length+")":"";
-    $("#watch").innerHTML=w.length?w.map(l=>'<div class="it"><span><b>'+esc(l.retailer)+'</b> · '+esc(MODELS[l.modelKey].name)+'</span><span class="num">'+eur(tot(l))+'</span><span class="sub">'+esc(l.statusReason||"")+' · <a href="'+esc(l.url)+'" target="_blank" rel="noopener">bekijk</a></span></div>').join(""):'<p class="tiny">Niets.</p>';
+    $("#watch").innerHTML=w.length?w.map(l=>'<div class="it"><span><b>'+esc(l.retailer)+'</b> · '+esc(l.condition)+'</span><span class="num">'+eur(tot(l))+'</span><span class="sub">'+esc(l.statusReason||"")+' · <a href="'+esc(l.url)+'" target="_blank" rel="noopener">bekijk</a></span></div>').join(""):'<p class="tiny">Niets.</p>';
     const rc=S.meta?.retailersChecked||[]; if(!$("#retailers")) return;
     $("#ret-n").textContent=rc.length?"("+rc.length+")":"";
     $("#retailers").innerHTML=rc.length?rc.map(r=>'<div class="it"><span><span class="dot '+(r.ok?'ok':'bad')+'"></span><b>'+esc(r.name)+'</b></span><span class="tiny">'+(r.ok?'gelukt':'mislukt')+'</span><span class="sub">'+esc(r.note||"")+'</span></div>').join(""):'<p class="tiny">Nog geen gegevens.</p>';
@@ -315,8 +298,7 @@ details[open] summary::after{content:"–"}
   function renderModel(){ renderSummary(); renderSwappie(); renderOthers(); }
   function renderAll(){ renderStatus(); renderModel(); renderChart(); renderSide(); }
 
-  document.querySelectorAll("[data-model]").forEach(b=>b.addEventListener("click",()=>{S.model=b.dataset.model; try{localStorage.setItem("radar-ui2",JSON.stringify({model:S.model}))}catch(e){} renderModel();}));
-  document.querySelectorAll("[data-sort]").forEach(b=>b.addEventListener("click",()=>{S.sort=b.dataset.sort; renderOthers();}));
+  document.querySelectorAll("[data-sort]").forEach(b=>b.addEventListener("click",()=>{S.sort=b.dataset.sort; renderModel();}));
 
   renderAll();
 
@@ -325,7 +307,7 @@ details[open] summary::after{content:"–"}
       const r=await fetch("data.json?t="+Date.now(),{cache:"no-store"});
       if(!r.ok) throw new Error(r.status);
       const d=await r.json();
-      S.listings=d.listings||[]; S.scans=(d.scans||[]).slice().sort((a,b)=>new Date(b.t)-new Date(a.t)); S.meta=d.meta||null;
+      S.listings=(d.listings||[]).filter(l=>MODELS[l.modelKey]); S.scans=(d.scans||[]).slice().sort((a,b)=>new Date(b.t)-new Date(a.t)); S.meta=d.meta||null;
       S.ok={l:true,s:true,m:true}; renderAll();
     }catch(e){
       S.ok={l:true,s:true,m:true}; renderAll();
